@@ -14,6 +14,7 @@ function CategoryScreen() {
                 data={CATEGORIES}
                 renderItem={renderCategoryItem}
                 keyExtractor={(item) => item.id}
+                numColumns={2}
             />
         </SafeAreaView>
     )
