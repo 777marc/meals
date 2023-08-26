@@ -2,11 +2,23 @@ import { StyleSheet, SafeAreaView, FlatList, Text, View } from "react-native";
 import { CATEGORIES } from "../data/dummy-data";
 import CategoryGridTile from "../components/CategoryGridTile";
 
-function renderCategoryItem(itemData) {
-    return <CategoryGridTile title={itemData.item.title} color={itemData.item.color} />;
-}
 
-function CategoryScreen() {
+function CategoryScreen({ navigation }) {
+
+    function renderCategoryItem(itemData) {
+
+        function handlePress() {
+            navigation.navigate("MealsOverview");
+        }
+
+        return (
+            <CategoryGridTile
+                title={itemData.item.title}
+                color={itemData.item.color}
+                onPress={handlePress}
+            />
+        );
+    }
 
     return (
         <SafeAreaView>
