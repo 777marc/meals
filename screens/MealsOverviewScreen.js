@@ -15,7 +15,7 @@ function MealsOverviewScreen({ route }) {
         {title} - id: {categoryId}
       </Text>
       {displayMeals.map((dm) => {
-        return <MealDetails key={dm.categoryIds} title={dm.title} />; //<Text key={dm.categoryIds}>{dm.title}</Text>
+        return <MealDetails key={dm.categoryIds} title={dm.title} />;
       })}
     </View>
   );
