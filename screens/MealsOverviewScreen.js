@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import { MEALS } from "../data/dummy-data";
-import MealDetails from "../components/MealDetails";
+import MealItem from "../components/MealItem";
 
 function MealsOverviewScreen({ route }) {
   const { categoryId, title } = route.params;
@@ -15,7 +15,7 @@ function MealsOverviewScreen({ route }) {
         {title} - id: {categoryId}
       </Text>
       {displayMeals.map((dm) => {
-        return <MealDetails key={dm.categoryIds} title={dm.title} />;
+        return <MealItem key={dm.categoryIds} title={dm.title} imageUrl={dm.imageUrl} />;
       })}
     </View>
   );
