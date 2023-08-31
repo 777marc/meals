@@ -14,8 +14,24 @@ function MealsOverviewScreen({ route }) {
       <Text>
         {title} - id: {categoryId}
       </Text>
-      {displayMeals.map((dm) => {
-        return <MealItem key={dm.categoryIds} title={dm.title} imageUrl={dm.imageUrl} />;
+      {displayMeals.map((dm, index) => {
+
+        const { title,
+          imageUrl,
+          affordability,
+          complexity,
+          duration,
+        } = dm;
+
+        const mealProps = {
+          title,
+          imageUrl,
+          affordability,
+          complexity,
+          duration,
+        }
+
+        return <MealItem key={index} {...mealProps} />;
       })}
     </View>
   );
