@@ -1,13 +1,21 @@
+import { useLayoutEffect } from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { MEALS } from "../data/dummy-data";
+import { MEALS, CATEGORIES } from "../data/dummy-data";
 import MealItem from "../components/MealItem";
 
-function MealsOverviewScreen({ route }) {
+function MealsOverviewScreen({ route, navigation }) {
   const { categoryId, title } = route.params;
 
   const displayMeals = MEALS.filter((meal) => {
     return meal.categoryIds.includes(categoryId);
   });
+
+  useLayoutEffect(() => {
+    const title = CATEGORIES.find((cat) => cat.id === categoryId).title;
+    navigation.setOptions({
+      title,
+    });
+  }, [categoryId, route])
 
   return (
     <View style={styles.container}>
