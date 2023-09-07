@@ -19,12 +19,11 @@ function MealsOverviewScreen({ route, navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text>
-        {title} - id: {categoryId}
-      </Text>
       {displayMeals.map((dm, index) => {
 
-        const { title,
+        const {
+          id,
+          title,
           imageUrl,
           affordability,
           complexity,
@@ -32,6 +31,7 @@ function MealsOverviewScreen({ route, navigation }) {
         } = dm;
 
         const mealProps = {
+          id,
           title,
           imageUrl,
           affordability,

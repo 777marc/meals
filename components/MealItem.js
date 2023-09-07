@@ -1,9 +1,15 @@
 import { Image, Platform, Pressable, StyleSheet, Text, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
-function MealItem({ title, imageUrl, complexity, affordability, duration }) {
+function MealItem({ id, title, imageUrl, complexity, affordability, duration }) {
+
+  const navigation = useNavigation("MealsDetail");
 
   function onPress() {
-    console.log('pressed');
+    navigation.navigate("MealsDetail", {
+      mealId: id,
+      title,
+    });
   }
 
   return (
