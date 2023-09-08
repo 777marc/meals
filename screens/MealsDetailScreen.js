@@ -15,8 +15,8 @@ function MealsDetailScreen({ route, navigation }) {
     return (
         <View style={styles.container}>
             <Text style={styles.textHeader}>{title}</Text>
-            <MealLists title={"Ingredients"} list={ingredients} />
-            <MealLists title={"Directions"} list={steps} />
+            <MealLists title={"Ingredients"} list={ingredients} showNumbering={false} />
+            <MealLists title={"Directions"} list={steps} showNumbering={true} />
         </View>
     );
 }

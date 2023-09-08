@@ -1,11 +1,15 @@
 import { StyleSheet, Text, View } from "react-native";
 
-function MealLists({ title, list }) {
+function MealLists({ title, list, showNumbering }) {
     return (
         <View>
             <Text style={styles.textHeader}>{title}:</Text>
             {list.map((detail, index) => {
-                return <Text key={index} style={styles.textContainer}>{detail}</Text>
+                return <Text key={index} style={styles.textContainer}>
+                    {showNumbering === true ?
+                        `${index + 1}.${detail}`
+                        : detail}
+                </Text>
             })}
         </View>
     )
@@ -20,7 +24,7 @@ const styles = StyleSheet.create({
     },
     textContainer: {
         color: "white",
-        paddingBottom: 5,
+        paddingBottom: 10,
     },
 });
 
