@@ -1,7 +1,8 @@
 import { useLayoutEffect } from "react";
-import { Button, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { MEALS } from "../data/dummy-data";
 import MealLists from "../components/MealLists";
+import IconButton from "../components/IconButton";
 
 function MealsDetailScreen({ route, navigation }) {
   const { mealId, title } = route.params;
@@ -19,10 +20,12 @@ function MealsDetailScreen({ route, navigation }) {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => {
-        return <Button title="Save" onPress={handleSavePressed} />;
+        return (
+          <IconButton color="white" icon="star" onPress={handleSavePressed} />
+        );
       },
     });
-  }, []);
+  }, [navigation, handleSavePressed]);
 
   return (
     <View style={styles.container}>
