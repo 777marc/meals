@@ -1,4 +1,4 @@
-import { createContext, useLayoutEffect } from "react";
+import { useContext, useLayoutEffect } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { MEALS } from "../data/dummy-data";
 import MealLists from "../components/MealLists";
@@ -7,10 +7,8 @@ import { FavoritesContext } from "../store/context/favorites-context";
 
 function MealsDetailScreen({ route, navigation }) {
   const { mealId, title } = route.params;
-  const favoriteMealsCtx = createContext(FavoritesContext);
-  const mealIsFavorite = false; //favoriteMealsCtx.ids.includes(mealId);
-
-  console.log("FavoritesContext", favoriteMealsCtx.addFavorite);
+  const favoriteMealsCtx = useContext(FavoritesContext);
+  const mealIsFavorite = favoriteMealsCtx.ids.includes(mealId);
 
   const displayMeal = MEALS.filter((meal) => {
     return meal.id.includes(mealId);
